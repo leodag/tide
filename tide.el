@@ -312,7 +312,8 @@ this variable to non-nil value for Javascript buffers using `setq-local' macro."
   (or
    tide-project-root
    (let ((root (or (locate-dominating-file default-directory "tsconfig.json")
-                   (locate-dominating-file default-directory "jsconfig.json"))))
+                   (locate-dominating-file default-directory "jsconfig.json")
+                   (locate-dominating-file default-directory "package.json"))))
      (unless root
        (message (tide-join (list "Couldn't locate project root folder with"
                                  " a tsconfig.json or jsconfig.json file. Using '"
